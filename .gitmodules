@@ -1,0 +1,10 @@
+[submodule "BlogApi"]
+	path = BlogApi
+	url = git@github.com:Florin12er/BlogApi.git
+
+[submodule "ShowBlogs"]
+	path = ShowBlogs
+	url = git@github.com:Florin12er/ShowBlogs.git
+[submodule "BlogMaker"]
+	path = BlogMaker
+	url = git@github.com:Florin12er/BlogMaker.git
