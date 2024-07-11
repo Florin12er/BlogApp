@@ -1,21 +1,30 @@
 import { useState } from "react";
 import axios from "axios";
 
-const ApiKeyGenerator = ({ token }) => {
+const ApiKeyGenerator = () => {
   const [apiKey, setApiKey] = useState("");
+  const [error, setError] = useState("");
+  const token = localStorage.getItem("token");
 
   const generateApiKey = async () => {
+    setError(""); // Clear previous errors
     try {
       const response = await axios.post(
         "https://blogapi-production-fb2f.up.railway.app/user/generate-api-key",
+        {}, // empty body
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        },
+        }
       );
       setApiKey(response.data.apiKey);
     } catch (error) {
+      if (error.response && error.response.status === 429) {
+        setError("Too many requests. Please try again later.");
+      } else {
+        setError("API key generation failed. Please try again.");
+      }
       console.error("API key generation failed", error);
     }
   };
@@ -41,9 +50,15 @@ const ApiKeyGenerator = ({ token }) => {
             />
           </div>
         )}
+        {error && (
+          <div className="mt-4 text-red-500">
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default ApiKeyGenerator;
+

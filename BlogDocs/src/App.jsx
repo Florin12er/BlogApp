@@ -7,6 +7,7 @@ import { useState } from "react";
 import Register from "./routes/Register";
 import ResetPassword from "./routes/Reset";
 import ResetRequest from "./routes/ResetRequest";
+import DashBoard from "./routes/DashBoard";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
   return (
@@ -32,16 +33,7 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route
-          path="/"
-          element={
-            token ? (
-              <ApiKeyGenerator token={token} />
-            ) : (
-              <Login setToken={setToken} />
-            )
-          }
-        />
+        <Route path="/" element={<DashBoard />} />
       </Routes>
     </>
   );
