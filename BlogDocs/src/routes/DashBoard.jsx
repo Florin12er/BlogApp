@@ -4,8 +4,7 @@ import SideBar from "../components/SideBar";
 function DashBoard() {
   return (
     <>
-      <NavBar />
-      <SideBar />
+      <h1>Blog api docs</h1>
     </>
   );
 }
