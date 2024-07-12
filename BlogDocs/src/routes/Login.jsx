@@ -32,8 +32,8 @@ function Login({ setToken }) {
       localStorage.setItem("token", token);
       localStorage.setItem("userId", userId);
       localStorage.setItem("username", username);
-      setToken(token);
       window.location.href = "/";
+      setToken(token);
     } catch (error) {
       setError(error.response.data.message);
     }
