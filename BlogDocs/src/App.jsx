@@ -8,8 +8,6 @@ import Register from "./routes/Register";
 import ResetPassword from "./routes/Reset";
 import ResetRequest from "./routes/ResetRequest";
 import DashBoard from "./routes/DashBoard";
-<<<<<<< HEAD
-=======
 import GettingStarted from "./routes/Docs/GettingStarted";
 import Setup from "./routes/Docs/Setup";
 import SideBar from "./components/SideBar"; // Ensure the path is correct
@@ -17,7 +15,6 @@ import NavBar from "./components/NavBar";
 import Config from "./routes/Docs/Config";
 import Node from "./routes/Docs/Node";
 
->>>>>>> 5d63a35 (added the sidebar and styled his elements)
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
@@ -26,27 +23,6 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-<<<<<<< HEAD
-        <Route path="reset-request" element={<ResetRequest />} />
-        <Route path="reset" element={<ResetPassword />} />
-        <Route
-          path="/generate-api-key"
-          element={
-            <RequireAuth>
-              <ApiKeyGenerator />
-            </RequireAuth>
-          }
-        />
-        <Route
-          path="/api-docs"
-          element={
-            <RequireAuth>
-              <ApiDocs />
-            </RequireAuth>
-          }
-        />
-        <Route path="/" element={<DashBoard />} />
-=======
         <Route path="/reset-request" element={<ResetRequest />} />
         <Route path="/reset" element={<ResetPassword />} />
         <Route element={<Layout />}>
@@ -60,7 +36,6 @@ function App() {
           </Route>
           <Route path="/api-docs" element={<ApiDocs />} />
         </Route>
->>>>>>> 5d63a35 (added the sidebar and styled his elements)
       </Routes>
     </>
   );
