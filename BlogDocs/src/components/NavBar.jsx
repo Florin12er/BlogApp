@@ -50,9 +50,9 @@ function NavBar() {
         </ul>
         {token ? (
           <div className="flex gap-3">
-            <Link
+            <a
               className="bg-zinc-500 flex justify-center gap-1 hover:bg-zinc-600 text-white py-2 px-4 rounded-md focus:outline-none"
-              to={`/settings/${userId}`}
+              href="https://github.com/Florin12er/BlogApp"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ function NavBar() {
                 ></path>
               </svg>
               <a href="https://github.com/Florin12er/BlogApp">Source Code</a>
-            </Link>
+            </a>
             <button
               className="bg-blue-500 flex justify-center gap-1 hover:bg-blue-600 text-white py-2 px-4 rounded-md focus:outline-none"
               onClick={handleLogout}

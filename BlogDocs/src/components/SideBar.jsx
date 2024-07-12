@@ -19,9 +19,16 @@ const elements = [
     depth: 1,
     parent: "Getting Started",
   },
-  { id: 3, name: "Config", path: "/config", depth: 0 },
-  { id: 4, name: "node", path: "/config/node", depth: 1, parent: "Config" },
-  { id: 5, name: "Element 3", path: "/element-3", depth: 0 },
+  {
+    id: 3,
+    name: "apikey",
+    path: "/getting-started/apikey",
+    depth: 1,
+    parent: "Getting Started",
+  },
+  { id: 4, name: "Config", path: "/config", depth: 0 },
+  { id: 5, name: "node", path: "/config/node", depth: 1, parent: "Config" },
+  { id: 6, name: "Element 3", path: "/element-3", depth: 0 },
 ];
 
 export function SideBar() {
@@ -43,16 +50,14 @@ export function SideBar() {
     query === ""
       ? elements
       : elements.filter((element) =>
-          element.name.toLowerCase().includes(query.toLowerCase())
+          element.name.toLowerCase().includes(query.toLowerCase()),
         );
 
   // Filter main elements and immediate children based on currently selected main element
   const filteredMainElements = elements.filter(
     (element) =>
       element.depth === 0 || // Only main elements (depth 0)
-      (element.depth === 1 &&
-        selected &&
-        selected.name === element.parent) // Include child elements of the currently selected main element
+      (element.depth === 1 && selected && selected.name === element.parent), // Include child elements of the currently selected main element
   );
 
   return (
@@ -72,7 +77,7 @@ export function SideBar() {
               autoComplete="off"
               className={clsx(
                 "w-full rounded-lg border border-gray-300 bg-white py-2 pl-3 pr-10 text-sm leading-5 text-gray-900",
-                "focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                "focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500",
               )}
               displayValue={(element) => element?.name}
               onChange={(event) => setQuery(event.target.value)}
@@ -90,7 +95,7 @@ export function SideBar() {
                 value={element}
                 className={clsx(
                   "relative cursor-default select-none py-2 pl-10 pr-4 text-gray-900",
-                  element === selected ? "bg-blue-600 text-white" : ""
+                  element === selected ? "bg-blue-600 text-white" : "",
                 )}
               >
                 {({ selected }) => (
@@ -133,7 +138,7 @@ export function SideBar() {
                   filteredMainElements[index - 1].depth < element.depth &&
                   !isActive
                   ? "ml-2 border-l-2 pl-2"
-                  : "" // Add border and indent for child elements
+                  : "", // Add border and indent for child elements
               )}
               onClick={() => setSelected(element)}
             >
@@ -147,4 +152,3 @@ export function SideBar() {
 }
 
 export default SideBar;
-

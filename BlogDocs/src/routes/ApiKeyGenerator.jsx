@@ -30,8 +30,8 @@ const ApiKeyGenerator = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="w-1/3 p-6 bg-white rounded shadow-md">
+    <div>
+      <div className="p-6 bg-white rounded shadow-md">
         <h2 className="text-2xl font-bold mb-4">Generate API Key</h2>
         <button
           onClick={generateApiKey}
@@ -46,7 +46,7 @@ const ApiKeyGenerator = () => {
               type="text"
               value={apiKey}
               readOnly
-              className="w-full p-2 border border-gray-300 rounded"
+              className="p-2 border border-gray-300 rounded"
             />
           </div>
         )}

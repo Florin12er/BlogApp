@@ -21,15 +21,22 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setToken={token}/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/reset-request" element={<ResetRequest />} />
         <Route path="/reset" element={<ResetPassword />} />
         <Route element={<Layout />}>
           <Route path="/" element={<DashBoard />} />
-          <Route path="/generate-api-key" element={<ApiKeyGenerator />} />
           <Route path="/getting-started" element={<GettingStarted />}>
             <Route path="setup" element={<Setup />} />
+            <Route
+              path="apikey"
+              element={
+                <RequireAuth>
+                  <ApiKeyGenerator/>
+                </RequireAuth>
+              }
+            />
           </Route>
           <Route path="/config" element={<Config />}>
             <Route path="node" element={<Node />} />
@@ -50,9 +57,9 @@ function Layout() {
         <div className="flex-1 p-6">
           <Routes>
             <Route path="/" element={<DashBoard />} />
-            <Route path="/generate-api-key" element={<ApiKeyGenerator />} />
             <Route path="/getting-started" element={<GettingStarted />}>
               <Route path="setup" element={<Setup />} />
+                <Route path="apikey" element={<RequireAuth><ApiKeyGenerator/></RequireAuth>}/>
             </Route>
             <Route path="/config" element={<Config />}>
               <Route path="node" element={<Node />} />
