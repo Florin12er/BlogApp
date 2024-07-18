@@ -8,3 +8,6 @@
 [submodule "BlogMaker"]
 	path = BlogMaker
 	url = git@github.com:Florin12er/BlogMaker.git
+[submodule "BlogDocs"]
+	path = BlogDocs
+	url = git@github.com:Florin12er/BlogDocs.git
